@@ -1,7 +1,9 @@
 # EarthMeshHoudini
 **Generate real world meshes in Houdini using the Google API.**
-![title](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/RushMoreHoudini.png)
-![turntable](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/StadeOlympiqueTurningTable30.gif)
+![Title](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/RushMoreHoudini.png)
+![Turntable](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/StadeOlympiqueTurningTable30.gif)
+![Sagrada Familia](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Sagrada.png)
+![Chryster Building](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Chrysler.png)
 ## Prerequisites
 
 ### Google Cloud Account
@@ -35,7 +37,7 @@ I use [this node](https://www.sidefx.com/docs/houdini/nodes/sop/labs--quickmater
 If you don't do that, most of the things you will see in the viewport won't be textured. It's optional but very recommended.
 - Open the _Display Option_.
 - Go to the _Material_ tab.
-- Increase the **Single Object Material Limit** to a big number like 5000.
+- Increase the **Single Object Material Limit** to a big number like _5000_.
 
 ![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material%20Limit.png)
 
@@ -44,11 +46,11 @@ Place the EarthMesh node in your scene.
 
 - **Cache path** Path of the temp cache (recommended value $HIP/Cache)
 
-![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/EarthMeshNode.png)
+![Earth Mesh Node](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/EarthMeshNode.png)
 
 Configure the node with the right parameter for your usage. I suggest you to start with the parameters in the screenshot, or use the test scene **EarthMesh_Test.hip** at the root of the repo.
 
-![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters.png)
+![HDA Parameters](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters.png)
 
 - **Google API Key** Copy your key here.
 - **Cache path** Path of the temp cache (recommended value $HIP/Cache)
