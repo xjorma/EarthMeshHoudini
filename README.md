@@ -40,10 +40,20 @@ If you don't do that, most of the things you will see in the viewport won't be t
 ![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material%20Limit.png)
 
 ## How to use the HDA
+Place the EarthMesh node in your scene.
+
+- **Cache path** Path of the temp cache (recommended value $HIP/Cache)
+
+![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/EarthMeshNode.png)
+
+Configure the node with the right parameter for your usage. I suggest you to start with the parameters in the screenshot, or use the test scene **EarthMesh_Test.hip** at the root of the repo.
+
+![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/EarthMeshNode.png)
+
 - **Google API Key** Copy your key here.
+- **Cache path** Path of the temp cache (recommended value $HIP/Cache)
 - **Latitude** Latitude of the area you want to capture, i usually do a copy-paste from _google map_.
 - **Longitude** Longitude of the area you want to capture, i usually do a copy-paste from _google map_.
-- **Cache path** Path of the temp cache (recommended value $HIP/Cache)
 - **MinError** The highest definition you want to use for your mesh, smaller number means higher definition. 2 is presently the best definition, maybe one day google will enrich their server with more detailed meshes.
 - **MaxError** The lowest definition you want to use for your mesh, smaller number means higher definition. 60000 is presently the worst definition.
 - **MinDist** If the bounding box is below this distance the resolution will be set to the MinError resolution. 
