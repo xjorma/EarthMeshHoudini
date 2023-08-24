@@ -25,7 +25,7 @@ You need to add 2 additional python packages, **pygltflib** to load gltf files, 
 - Type **hython -m pip install pygltflib** to install the pygltflib.
 - Type **hython -m pip install DracoPy** to install DracoPy.
 - **Quit** Houdini.
-- The 2 packages are installed.
+- The 2 packages are installed, your are good to go to the mext step.
 
 ### SideFX Labs
 I use [this node](https://www.sidefx.com/docs/houdini/nodes/sop/labs--quickmaterial-2.0.html) from Labs, so you need to install the Labs Package.
@@ -48,22 +48,23 @@ Place the EarthMesh node in your scene.
 
 Configure the node with the right parameter for your usage. I suggest you to start with the parameters in the screenshot, or use the test scene **EarthMesh_Test.hip** at the root of the repo.
 
-![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/EarthMeshNode.png)
+![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters.png)
 
 - **Google API Key** Copy your key here.
 - **Cache path** Path of the temp cache (recommended value $HIP/Cache)
 - **Latitude** Latitude of the area you want to capture, i usually do a copy-paste from _google map_.
 - **Longitude** Longitude of the area you want to capture, i usually do a copy-paste from _google map_.
-- **MinError** The highest definition you want to use for your mesh, smaller number means higher definition. 2 is presently the best definition, maybe one day google will enrich their server with more detailed meshes.
-- **MaxError** The lowest definition you want to use for your mesh, smaller number means higher definition. 60000 is presently the worst definition.
-- **MinDist** If the bounding box is below this distance the resolution will be set to the MinError resolution. 
-- **MaxDist** If the bounding box is Farther this distance the resolution will be set to the MaxError resolution. Is the distance is in-between the chosen resolution will be an interpolation between MinError and MaxError 
+- **Min Error** The highest definition you want to use for your mesh, smaller number means higher definition. 2 is presently the best definition, maybe one day google will enrich their server with more detailed meshes.
+- **Max Error** The lowest definition you want to use for your mesh, smaller number means higher definition. 60000 is presently the worst definition.
+- **Min Dist** If the bounding box is below this distance the resolution will be set to the MinError resolution. 
+- **Max Dist** If the bounding box is Farther this distance the resolution will be set to the MaxError resolution. Is the distance is in-between the chosen resolution will be an interpolation between MinError and MaxError 
+- **Show Bounding Boxes** It's mainly an option I used to debug, it builds a mesh with the bounding boxes instead of the actual mesh from google.
 
 ## Trouble shooting
 To optimize and also limit the number of requests to the _google cloud_, I use a cache in a folder specified in the digital asset. If a file in the cache is corrupted (it never append to me, but for example if Houdini crash or is killed while generating the mesh) it might result to various issues like crashing Houdini, if you suspect the cache to be the source of your problems don't hesitate to delete all the file inside. There is nothing in the cache that can't be downloaded again from the cloud.
 
 ## Know issues 
-There are presently few warnings related to the labs's QuickMaterials node just after loading the HDA. I will do some follow-up with SideFX, and figure out what the solution is.
+There are presently few warnings related to the labs's QuickMaterials node just after loading the HDA. I will do some follow-up with _SideFX_, and figure out what the solution is.
 
 ![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material_Warning.png)
 
