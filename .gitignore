@@ -1,6 +1,6 @@
 /backup/
 /EarthMesh/backup/
 /render/
-/Cache/
-
-
+/Cache/*.json
+/Cache/*.jpg
+/Cache/*.glb
