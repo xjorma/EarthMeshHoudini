@@ -29,6 +29,8 @@ You need to add 2 additional python packages, **pygltflib** to load gltf files, 
 - **Quit** Houdini.
 - The 2 packages are installed, your are good to go to the next step.
 
+Note: Some user had to install **PIP**, in this case follow the instruction [here](http://wordpress.discretization.de/houdini/home/advanced-2/installing-and-using-scipy-in-houdini/).
+
 ### SideFX Labs
 I use [this node](https://www.sidefx.com/docs/houdini/nodes/sop/labs--quickmaterial-2.0.html) from Labs, so you need to install the Labs Package.
 - Launch the **Houdini Laucher** and install the Labs/Packages.
@@ -53,7 +55,7 @@ Configure the node with the right parameter for your usage. I suggest you start 
 ![HDA Parameters](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters.png)
 
 - **Google API Key** Copy your key here.
-- **Cache path** Path of the temp cache (recommended value $HIP/Cache)
+- **Cache path** Path of the temp cache (recommended value $HIP/Cache). **Make sure this really exist folder exist on your drive**.
 - **Latitude** Latitude of the area you want to capture, i usually do a copy-paste from _google map_.
 - **Longitude** Longitude of the area you want to capture, i usually do a copy-paste from _google map_.
 - **Min Error** The highest definition you want to use for your mesh, smaller number means higher definition. 2 is presently the best definition, maybe one day google will enrich their server with more detailed meshes.
