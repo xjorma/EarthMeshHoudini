@@ -41,7 +41,7 @@ If you don't do that, most of the things you will see in the viewport won't be t
 - Open the _Display Option_.
 - Go to the _Material_ tab.
 - Increase the **Single Object Material Limit** to a big number like _5000_.
-- **Restart** Houdini.
+- instantiate a new Scene Viewer or quit and restart Houdini.
 
 ![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material%20Limit.png)
 
