@@ -18,7 +18,8 @@ You need a google account to be able to use this HDA. The process is easy:
 8. Click on the _Hamburger Icon_ on the top right. choose **API and Service** then **Library**.
 9. Search for **Map Tiles API** and Enable it (It should give you a key at this Stage **Keep it** and **do not share** it with anyone).
 10. Search for **Maps Elevation API** and Enable it.
-11. That's it for the *Google Cloud Account*.
+11. You can test if your key supports the _Map Tiles API_ by trying this link on your favorite browser **https://tile.googleapis.com/v1/3dtiles/root.json?key=YOUR_API_KEY**, replace **YOUR_API_KEY** by your key, if you see an error message it's not good, and you need to check again your account.
+12. You can test if your key supports the _Elevation API_ by trying this link on your favorite browser **https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=YOUR_API_KEY**, replace **YOUR_API_KEY** by your key, if you see an error message it's not good, and you need to check again your account.
 
 ### Additional Python Packages
 You need to add 2 additional python packages, **pygltflib** to load gltf files, **DracoPy** to uncompress mesh compression from google used by the 3D tiles.
@@ -64,6 +65,8 @@ Configure the node with the right parameter for your usage. I suggest you start 
 - **Min Dist** If the bounding box is below this distance, the resolution will be set to the MinError resolution. 
 - **Max Dist** If the bounding box is farther from this distance the resolution will be set to the MaxError resolution. If the distance is in-between the chosen resolution will be an interpolation between MinError and MaxError 
 - **Show Bounding Boxes** It's mainly an option I used to debug, it builds a mesh with the bounding boxes instead of the actual mesh from google.
+
+Be patient it takes couple of minutes to dowwnload and build the meshes.
 
 1 unit in Houdini, is 1 meter in real live, the X axis point to the North, the Z axis point to the East.
 
