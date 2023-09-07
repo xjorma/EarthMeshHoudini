@@ -1,5 +1,3 @@
-## :warning: Warning :warning: a web service I am using seems to be down, so my HDA is no working anymore. I will try find a solution today.
-
 # EarthMeshHoudini
 **Generate real world meshes in Houdini using the Google API.**
 ![Title](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/RushMoreHoudini.png)
