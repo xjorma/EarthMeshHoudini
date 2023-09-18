@@ -1,6 +1,9 @@
 /backup/
 /EarthMesh/backup/
+/TextureAtlas/backup/
 /render/
 /Cache/*.json
 /Cache/*.jpg
 /Cache/*.glb
+/map/*.png
+/map/*.jpg

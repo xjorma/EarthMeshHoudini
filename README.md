@@ -64,6 +64,7 @@ Configure the node with the right parameter for your usage. I suggest you start 
 - **Max Error** The lowest definition you want to use for your mesh, smaller number means higher definition. 60000 is presently the worst definition.
 - **Min Dist** If the bounding box is below this distance, the resolution will be set to the MinError resolution. 
 - **Max Dist** If the bounding box is farther from this distance the resolution will be set to the MaxError resolution. If the distance is in-between the chosen resolution will be an interpolation between MinError and MaxError 
+- **Max Meshes** Limit the number of GLB loaded, to avoid scraping the whole google database and explode your budget and also avoid being trapped in an infinite loop.
 - **Show Bounding Boxes** It's mainly an option I used to debug, it builds a mesh with the bounding boxes instead of the actual mesh from google.
 
 Be patient it takes couple of minutes to dowwnload and build the meshes.
