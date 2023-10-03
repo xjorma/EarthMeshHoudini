@@ -46,18 +46,18 @@ If you don't do that, most of the things you will see in the viewport won't be t
 ![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material%20Limit.png)
 
 ## How to use the HDA
-Place the EarthMesh node in your scene.
 
-- **Cache path** Path of the temp cache (recommended value $HIP/Cache)
+### EarthMesh
+Place the EarthMesh node in your scene.
 
 ![Earth Mesh Node](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/EarthMeshNode.png)
 
 Configure the node with the right parameter for your usage. I suggest you start with the parameters in the screenshot, or use the test scene **EarthMesh_Test.hip** at the root of the repo.
 
-![HDA Parameters](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters.png)
+![HDA Parameters EarthMesh Node](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters.png)
 
-- **Google API Key** Copy your key here.
-- **Cache path** Path of the temp cache (recommended value $HIP/Cache). **Make sure this really exist folder exist on your drive**.
+- **Google API Key** Copy your key here, you can replace the whole _`$Google_Cloud_Api_Key`_ string with your key, or set an environment variable named _Google_Cloud_Api_Key_ and set your key as value.
+- **Cache path** Path of the temp cache (recommended value $HIP/Cache). **Make sure this folder exists on your drive**
 - **Latitude** Latitude of the area you want to capture, i usually do a copy-paste from _google map_.
 - **Longitude** Longitude of the area you want to capture, i usually do a copy-paste from _google map_.
 - **Min Error** The highest definition you want to use for your mesh, smaller number means higher definition. 2 is presently the best definition, maybe one day google will enrich their server with more detailed meshes.
@@ -66,10 +66,25 @@ Configure the node with the right parameter for your usage. I suggest you start 
 - **Max Dist** If the bounding box is farther from this distance the resolution will be set to the MaxError resolution. If the distance is in-between the chosen resolution will be an interpolation between MinError and MaxError 
 - **Max Meshes** Limit the number of GLB loaded, to avoid scraping the whole google database and explode your budget and also avoid being trapped in an infinite loop.
 - **Show Bounding Boxes** It's mainly an option I used to debug, it builds a mesh with the bounding boxes instead of the actual mesh from google.
+- **Remove Skirt** _Skirts_ are small polygons used to avoid gaps between meshes. For most common usage it's better to keep polygons, but if you want to display your mesh in additive or generate a point cloud, this option  might be useful.
+- **Clear Cache** Press this button to clear your cache.
 
 Be patient it takes couple of minutes to dowwnload and build the meshes.
 
 1 unit in Houdini, is 1 meter in real live, the X axis point to the North, the Z axis point to the East.
+
+### Texture Atlas
+
+Using countless lots of 256x256 textures, it is not practical and also slow to render (Too many draw calls), this node is here to help you..
+
+![HDA Parameters TextureAtlas_Node](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters_Atlas.png)
+
+- **TextureDirectory** Folder where all the atlas textures will be exported. **Make sure this folder exists on your drive**
+- **Prefix** All the texture filename will start with this.
+- **Padding** Number of pixels used to separate the little textures block inside the big texture. Useful to avoid seams when using mipmaps. Too big value will reduce the resolution of the texture.
+- **Extension** File format used to export atlas textures.
+- **Max Atlas Size** Dimension of generated atlas textures. (don't use a size bigger than _8192_ for Unreal)
+
 
 ## Trouble shooting
 To optimize and also limit the number of requests to the _google cloud_, I use a cache in a folder specified in the digital asset. If a file in the cache is corrupted (it's never happened to me, but for example if Houdini crashes or is killed while generating the mesh) it might result in various issues like crashing Houdini, if you suspect the cache to be the source of your problems don't hesitate to delete all the files inside. There is nothing in the cache that can't be downloaded again from the cloud.
