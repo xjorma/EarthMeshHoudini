@@ -73,7 +73,7 @@ Be patient it takes couple of minutes to dowwnload and build the meshes.
 
 1 unit in Houdini, is 1 meter in real live, the X axis point to the North, the Z axis point to the East.
 
-### Texture Atlas
+### TextureAtlas
 
 Using countless lots of 256x256 textures, it is not practical and also slow to render (Too many draw calls), this node is here to help you..
 
@@ -85,6 +85,9 @@ Using countless lots of 256x256 textures, it is not practical and also slow to r
 - **Extension** File format used to export atlas textures.
 - **Max Atlas Size** Dimension of generated atlas textures. (don't use a size bigger than _8192_ for Unreal)
 
+If you don't want to see pixelated textured in your houdini viewport, you probably want to uncheck **Limit Resolution** on the **Texture** tab of **Display Option**  .
+
+![Display Option Limit Resolution](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/LimitResolution.png)
 
 ## Trouble shooting
 To optimize and also limit the number of requests to the _google cloud_, I use a cache in a folder specified in the digital asset. If a file in the cache is corrupted (it's never happened to me, but for example if Houdini crashes or is killed while generating the mesh) it might result in various issues like crashing Houdini, if you suspect the cache to be the source of your problems don't hesitate to delete all the files inside. There is nothing in the cache that can't be downloaded again from the cloud.
@@ -95,8 +98,8 @@ There are currently a few warnings related to the labs's QuickMaterials node jus
 ![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material_Warning.png)
 
 ## Planified Improvement
-- Make the download phase interruptible, presently you only rely on the **max_meshes** parameter to avoid a very long wait or an infinite loop while experimenting with LOD parameters.
-- Optimize the mesh construction, I already optimized this part a lot. I will try to optimize it more. I am open to suggestions.
+- <s>Make the download phase interruptible, presently you only rely on the **max_meshes** parameter to avoid a very long wait or an infinite loop while experimenting with LOD parameters.</s> **(Done)**
+- <s>Optimize the mesh construction, I already optimized this part a lot. I will try to optimize it more. I am open to suggestions.</s> **(Done)**
 - Probably a ton based on your feedback.
 
 ## Warning
