@@ -137,10 +137,10 @@ class EarthMeshDownloader:
 
             e = child["geometricError"]
 
-            if e < self.min_error or e > self.max_error:
-                logger.info(f"Geometric Error: {e} is out of range [{self.min_error}, {self.max_error}]")
-                self.download(child)
-                continue
+            # if e < self.min_error or e > self.max_error:
+            #     logger.info(f"Geometric Error: {e} is out of range [{self.min_error}, {self.max_error}]")
+            #     self.download(child)
+            #     continue
 
             bbx = buildBoundingBoxMatrix(child["boundingVolume"]["box"])
             dist = sdfBox(bbx, self.center)
