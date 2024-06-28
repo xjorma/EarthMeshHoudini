@@ -104,8 +104,8 @@ class EarthMeshDownloader:
     
     def _download(self, child):
         glb = child["content"]["uri"]
-        file_name = CACHE_PATH + "/" + hash_filename(glb.split("/")[-1])
-        file_from_url(f"{self.tile_url}{glb}?{self.context}&key={GOOGLE_API_KEY}", file_name, self.cached)
+        file_name = CACHE_PATH / hash_filename(glb.split("/")[-1])
+        file_from_url(f"{self.tile_url}{glb}?{self.context}&key={GOOGLE_API_KEY}", file_name.as_posix(), self.cached)
         boxes_str = ",".join([str(x) for x in child["boundingVolume"]["box"]])
         return file_name, boxes_str, str(child["geometricError"])
 

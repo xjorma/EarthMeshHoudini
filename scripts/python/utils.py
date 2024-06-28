@@ -3,6 +3,7 @@ import urllib.request
 import hashlib
 import os
 import logging
+from pathlib import Path
 
 try:
     import hou
@@ -12,7 +13,7 @@ except ImportError:
 logger = logging.getLogger(__name__)
 
 
-CACHE_PATH = os.environ.get("EARTH_MESH_CACHE", "./cache")
+CACHE_PATH = Path(os.environ.get("EARTH_MESH_CACHE", "./cache"))
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", None)
 
 print(f"Cache path: {CACHE_PATH}")
@@ -26,8 +27,13 @@ def hash_filename(filename):
 
 def bytes_from_url(url, cached):
     filename = hash_filename(url.split("?")[0].split("/")[-1])
-    path = ("%s/%s") % (CACHE_PATH, filename)
-    if(cached and os.path.isfile(path)):
+
+    if not CACHE_PATH.exists():
+        CACHE_PATH.mkdir(parents=True)  # TODO: May want to do this somewhere else
+
+    path = CACHE_PATH / filename
+
+    if cached and path.is_file():
         with open(path, "rb") as file:
             return file.read()
     else:
