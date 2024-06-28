@@ -4,6 +4,7 @@
 /Cache/*.json
 /Cache/*.glb
 
+cache
 backup
 __pycache__
 
