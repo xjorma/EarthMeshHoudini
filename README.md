@@ -49,6 +49,12 @@ If you don't do that, most of the things you will see in the viewport won't be t
 
 ![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material%20Limit.png)
 
+# Installation
+- Download the repo.
+- Place the **EarthMeshHoudini** folder somewhere on your local drive. It's important that you do not install **EarthMeshHoudini** directly into your $HOME/houdiniXX.X directory or into any other default Houdini installation directory, or else it may not properly be loaded when you start Houdini.
+- Configure the **Google API Key** in the **EarthMesh.json** file and change the **EARTHMESH_PATH** to the path where you placed the **EarthMeshHoudini** folder.
+- Copy the **EarthMesh.json** file to your $HOME/houdiniXX.X/packages folder.
+
 ## How to use the HDA
 
 ### EarthMesh

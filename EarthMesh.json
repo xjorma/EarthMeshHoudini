@@ -1,0 +1,14 @@
+{
+	"env": [
+		{
+			"GOOGLE_MAPS_API_KEY": "YOUR_API_KEY"
+		},
+		{
+			"EARTHMESH_PATH": "D:/Houdini/EarthMeshHoudini",
+		},
+		{
+			"HOUDINI_PYTHONWARNINGS": "ignore"
+		}
+	],
+	"path": "$EARTHMESH_PATH"
+}
