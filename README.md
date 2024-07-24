@@ -25,8 +25,12 @@ You need a google account to be able to use this HDA. The process is easy:
 You need to add 2 additional python packages, **pygltflib** to load gltf files, **DracoPy** to uncompress mesh compression from google used by the 3D tiles.
 - Launch Houdini.
 - Go to the top menus **Windows** >> **Shell**.
-- Type **hython -m pip install pygltflib** to install the pygltflib.
-- Type **hython -m pip install DracoPy** to install DracoPy.
+- To install **pygltflib** type:
+   ```sh
+   hython -m pip install pygltflib
+- To install **DracoPy** type:
+   ```sh
+   hython -m pip install DracoPy
 - **Quit** Houdini.
 - The 2 packages are installed, your are good to go to the next step.
 
