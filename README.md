@@ -18,8 +18,8 @@ You need a google account to be able to use this HDA. The process is easy:
 8. Click on the _Hamburger Icon_ on the top right. choose **API and Service** then **Library**.
 9. Search for **Map Tiles API** and Enable it (It should give you a key at this Stage **Keep it** and **do not share** it with anyone).
 10. Search for **Maps Elevation API** and Enable it.
-11. You can test if your key supports the _Map Tiles API_ by trying this link on your favorite browser **https://tile.googleapis.com/v1/3dtiles/root.json?key=YOUR_API_KEY**, replace **YOUR_API_KEY** by your key, if you see an error message it's not good, and you need to check again your account.
-12. You can test if your key supports the _Elevation API_ by trying this link on your favorite browser **https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=YOUR_API_KEY**, replace **YOUR_API_KEY** by your key, if you see an error message it's not good, and you need to check again your account.
+11. You can test if your key supports the _Map Tiles API_ by trying this link on your favorite browser **https://tile.googleapis.com/v1/3dtiles/root.json?key=YOUR_API_KEY**, replace **YOUR_API_KEY** by your key,  If you see an error message, something is wrong, and you should check your account settings again.
+12. You can test if your key supports the _Elevation API_ by trying this link on your favorite browser **https://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536%2C-104.9847034&key=YOUR_API_KEY**, replace **YOUR_API_KEY** by your key,  If you see an error message, something is wrong, and you should check your account settings again.
 
 ### Additional Python Packages
 You need to add 2 additional python packages, **pygltflib** to load gltf files, **DracoPy** to uncompress mesh compression from google used by the 3D tiles.
@@ -73,28 +73,28 @@ Configure the node with the right parameter for your usage. I suggest you start 
 - **Remove Skirt** _Skirts_ are small polygons used to avoid gaps between meshes. For most common usage it's better to keep polygons, but if you want to display your mesh in additive or generate a point cloud, this option  might be useful.
 - **Clear Cache** Press this button to clear your cache.
 
-Be patient it takes couple of minutes to dowwnload and build the meshes.
+Be patient, as it can take a couple of minutes to download and build the meshes.
 
-1 unit in Houdini, is 1 meter in real live, the X axis point to the North, the Z axis point to the East.
+1 unit in Houdini is 1 meter in real life. The X-axis points North, and the Z-axis points East.
 
 ### TextureAtlas
 
-Using countless lots of 256x256 textures, it is not practical and also slow to render (Too many draw calls), this node is here to help you..
+Using countless 256x256 textures is impractical and slow to render due to too many draw calls. This node helps solve that.
 
 ![HDA Parameters TextureAtlas_Node](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/HDA_Parameters_Atlas.png)
 
-- **TextureDirectory** Folder where all the atlas textures will be exported. **Make sure this folder exists on your drive**
-- **Prefix** All the texture filename will start with this.
-- **Padding** Number of pixels used to separate the little textures block inside the big texture. Useful to avoid seams when using mipmaps. Too big value will reduce the resolution of the texture.
+- **TextureDirectory** The folder where all atlas textures will be exported. **Make sure this folder exists on your drive**
+- **Prefix** All texture filenames will start with this prefix.
+- **Padding** The number of pixels used to separate the smaller texture blocks within the larger atlas texture. This is useful for avoiding seams when using mipmaps. A value that is too large will reduce the final texture resolution.
 - **Extension** File format used to export atlas textures.
-- **Max Atlas Size** Dimension of generated atlas textures. (don't use a size bigger than _8192_ for Unreal)
+- **Max Atlas Size** The dimensions of the generated atlas textures. (Do not use a size larger than 8192 for Unreal Engine).
 
-If you don't want to see pixelated textured in your houdini viewport, you probably want to uncheck **Limit Resolution** on the **Texture** tab of **Display Option**  .
+If you don't want to see pixelated textures in your Houdini viewport, you should uncheck **Limit Resolution** on the **Texture** tab of **Display Option**  .
 
 ![Display Option Limit Resolution](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/LimitResolution.png)
 
 ## Trouble shooting
-To optimize and also limit the number of requests to the _google cloud_, I use a cache in a folder specified in the digital asset. If a file in the cache is corrupted (it's never happened to me, but for example if Houdini crashes or is killed while generating the mesh) it might result in various issues like crashing Houdini, if you suspect the cache to be the source of your problems don't hesitate to delete all the files inside. There is nothing in the cache that can't be downloaded again from the cloud.
+To optimize performance and limit the number of requests to the Google Cloud, this HDA uses a cache stored in the folder specified in the digital asset's parameters. If a file in the cache becomes corrupted (which has never happened to me, but could occur if Houdini crashes or is killed while generating a mesh), it might cause various issues, including Houdini crashing. If you suspect the cache is the source of your problems, feel free to delete all the files inside it. There is nothing in the cache that cannot be downloaded again from the cloud.
 
 ## Know issues 
 - I have some certificate issues on Mac and Linux. Any help fixing them is welcome.
@@ -102,9 +102,9 @@ To optimize and also limit the number of requests to the _google cloud_, I use a
 - It seems there is an issue with atlasing when too many meshes are loaded.
 
 ## Planified Improvement
-- <s>Make the download phase interruptible, presently you only rely on the **max_meshes** parameter to avoid a very long wait or an infinite loop while experimenting with LOD parameters.</s> **(Done)**
-- <s>Optimize the mesh construction, I already optimized this part a lot. I will try to optimize it more. I am open to suggestions.</s> **(Done)**
-- Probably a ton based on your feedback.
+- <s>Make the download phase interruptible. Currently, you can only rely on the max_meshes parameter to avoid a very long wait or an infinite loop while experimenting with LOD parameters.</s> **(Done)**
+- <s>Optimize mesh construction. I have already optimized this part significantly, but I will continue to improve it. I am open to suggestions</s> **(Done)**
+- More improvements based on your feedback.
 
 ## Warning
-I am not a legal expert, but the meshes from google are copyrighted. Be careful when using them in a project.
+I am not a legal expert, but be aware that the meshes from Google are copyrighted. Please be careful when using them in a project.
