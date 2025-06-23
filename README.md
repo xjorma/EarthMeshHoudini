@@ -97,9 +97,9 @@ If you don't want to see pixelated textured in your houdini viewport, you probab
 To optimize and also limit the number of requests to the _google cloud_, I use a cache in a folder specified in the digital asset. If a file in the cache is corrupted (it's never happened to me, but for example if Houdini crashes or is killed while generating the mesh) it might result in various issues like crashing Houdini, if you suspect the cache to be the source of your problems don't hesitate to delete all the files inside. There is nothing in the cache that can't be downloaded again from the cloud.
 
 ## Know issues 
-There are currently a few warnings related to the labs's QuickMaterials node just after loading the HDA. I'll do some follow-up with _SideFX_, and figure out what the solution is.
-
-![Material Warning](https://github.com/xjorma/EarthMeshHoudini/blob/main/Image/Material_Warning.png)
+- I have some certificate issues on Mac and Linux. Any help fixing them is welcome.
+- It seems that Google now changes the URI for each session, probably to prevent long-term caching. I’ll need to find a way to reuse the session as much as possible because caching is now completely broken.
+- It seems there is an issue with atlasing when too many meshes are loaded.
 
 ## Planified Improvement
 - <s>Make the download phase interruptible, presently you only rely on the **max_meshes** parameter to avoid a very long wait or an infinite loop while experimenting with LOD parameters.</s> **(Done)**
