@@ -26,11 +26,11 @@ You need to add two additional Python packages: **pygltflib** to load GLTF files
 - Launch Houdini.
 - Go to the top menus **Windows** >> **Shell**.
 - To install **pygltflib**, type:
- ```sh
- hython -m pip install pygltflib
+  ```sh
+  hython -m pip install pygltflib
 - To install **DracoPy**, type:
- ```sh
- hython -m pip install DracoPy
+  ```sh
+  hython -m pip install DracoPy
 - **Quit** Houdini.
 - The two packages are installed; you're ready to proceed to the next step.
 
