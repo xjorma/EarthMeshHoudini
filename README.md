@@ -98,7 +98,6 @@ To optimize performance and limit the number of requests to the Google Cloud, th
 
 ## Know issues 
 - I have some certificate issues on Mac and Linux. Any help fixing them is welcome.
-- It seems that Google now changes the URI for each session, probably to prevent long-term caching. I’ll need to find a way to reuse the session as much as possible because caching is now completely broken.
 - It seems there is an issue with atlasing when too many meshes are loaded.
 
 ## Planified Improvement
