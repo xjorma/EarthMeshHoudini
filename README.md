@@ -97,7 +97,7 @@ If you don't want to see pixelated textures in your Houdini viewport, you should
 To optimize performance and limit the number of requests to Google Cloud, this HDA uses a cache stored in the folder specified in the digital asset's parameters. If a file in the cache becomes corrupted (which has never happened to me but could occur if Houdini crashes or is terminated while generating a mesh), it might cause various issues, including Houdini crashing. If you suspect the cache is the source of your problems, feel free to delete all the files inside it. There is nothing in the cache that cannot be downloaded again from the cloud.
 
 ## Known Issues 
-- I have some certificate issues on Mac and Linux. Any help fixing them is welcome.
+- <s>I have some certificate issues on Mac and Linux. Any help fixing them is welcome.</s>
 - It seems there is an issue with atlasing when too many meshes are loaded.
 
 ## Planned Improvements
